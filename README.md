@@ -44,3 +44,7 @@ In this screen the functionalities below are **mandatory**:
 In this screen the functionalities below are **mandatory**:
 
 1. See all information for the selected book.
+
+### Time spent
+
+1. Base project setup ~ 1h
