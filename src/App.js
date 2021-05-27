@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import Light from "./styles/themes/light";
-import ThemeContext from "./context/themeContext";
 import flexComponent from "./hoc/flexComponent";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
@@ -9,11 +9,7 @@ import NotFound from "./components/notFound";
 
 function App() {
   return (
-    <ThemeContext.Provider
-      value={{
-        theme: Light,
-      }}
-    >
+    <ThemeProvider theme={Light}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={flexComponent(Home)} />
@@ -22,7 +18,7 @@ function App() {
         </Switch>
         <Navbar />
       </BrowserRouter>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 

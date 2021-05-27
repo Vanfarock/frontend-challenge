@@ -1,11 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FlexContainer = styled.div`
+  flex: 1;
+`;
 
 export default function flexComponent(Component) {
+
   return (props) => {
     return (
-      <div className="flex-1">
+      <FlexContainer>
         <Component {...props} />
-      </div>
+      </FlexContainer>
     );
   };
 }

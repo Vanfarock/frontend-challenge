@@ -48,3 +48,4 @@ In this screen the functionalities below are **mandatory**:
 ### Time spent
 
 1. Base project setup ~ 1h
+2. Change styling from tailwind to styled-components and develop navbar ~ 40min
