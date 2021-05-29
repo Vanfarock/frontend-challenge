@@ -1,3 +1,8 @@
+:root {
+  --top-distance: 50px;
+  --horizontal-distance: 20px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

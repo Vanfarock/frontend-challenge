@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const NavbarContainer = styled.nav`
+  position: sticky;
+  bottom: 0;
+
   width: 100%;
+  background-color: ${({ theme }) => theme.navBackgroundColor};
 `;
 
 export const NavItems = styled.div`
