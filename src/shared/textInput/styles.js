@@ -26,4 +26,6 @@ export const Input = styled.input`
   background-color: ${(props) => props.theme.inputBackgroundColor};
   border: none;
   border-radius: 0 10px 10px 0;
+
+  box-shadow: 5px 5px 80px ${({ theme }) => theme.boxShadow};
 `;

@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const FlexContainer = styled.div`
   flex: 1;
 `;
 
-export default function flexComponent(Component) {
+export default function FlexComponent({ Component, ...other}) {
+  return (
+    <FlexContainer>
+      <Component {...other} />
+    </FlexContainer>
+  );
+}
 
-  return (props) => {
-    return (
-      <FlexContainer>
-        <Component {...props} />
-      </FlexContainer>
-    );
-  };
+FlexComponent.propTypes = {
+  Component: PropTypes.func.isRequired,
 }

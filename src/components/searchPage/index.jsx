@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { getBooks } from './../../services/booksService';
 import TextInput from '../../shared/textInput';
 import Search from '../../icons/search.svg';
+import DefaultBookCover from '../../shared/defaultBookCover';
 import { SearchPageContainer, 
          BooksGrid, 
          Book, 
          BookCover, 
-         DefaultBookCover, 
          BookTitle, 
          BookAuthor, 
          LoadMoreButton } from './styles';
@@ -54,7 +54,7 @@ const SearchPage = () => {
 
   const renderBookCover = book => {
     if (book.volumeInfo.imageLinks) {
-      return <BookCover src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+      return <BookCover src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
     }
     return <DefaultBookCover>No image available</DefaultBookCover>
   }
@@ -67,7 +67,7 @@ const SearchPage = () => {
                  placeholder={"Search book"} />
       <BooksGrid>
         {books.map(book => (
-          <Book key={book.etag}>
+          <Book to={`/books/${book.id}`} key={book.etag}>
             {renderBookCover(book)}
             <BookTitle>{book.volumeInfo.title}</BookTitle>
             {book.volumeInfo.authors && book.volumeInfo.authors.length && 

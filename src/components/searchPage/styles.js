@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SearchPageContainer = styled.div`
@@ -16,7 +17,7 @@ export const BooksGrid = styled.div`
   margin-top: 40px;
 `;
 
-export const Book = styled.div``;
+export const Book = styled(Link)``;
 
 export const BookCover = styled.img`
   max-width: 100%;
@@ -26,16 +27,6 @@ export const BookCover = styled.img`
   border-radius: 5px;
 
   object-fit: cover;
-`;
-
-export const DefaultBookCover = styled.div`
-  background-color: ${({ theme }) => theme.navBackgroundColor};
-  text-align: center;
-  line-height: 130%;
-  padding: 60px 5px;
-
-  color: ${({ theme }) => theme.bookInfoColor};
-  border: 1px solid ${({ theme }) => theme.bookThumbBorder};
 `;
 
 export const BookTitle = styled.h1`
@@ -54,6 +45,8 @@ export const LoadMoreButton = styled.button`
   width: 50%;
 
   font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
   background-color: ${({ theme }) => theme.primaryColorButton};
   border: none;
@@ -62,5 +55,9 @@ export const LoadMoreButton = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.lighterPrimaryColorButton};
+  }
+
+  &:focus {
+    background-color: ${({ theme }) => theme.darkerPrimaryColorButton};
   }
 `;

@@ -7,3 +7,7 @@ export function getBooks(query, startIndex = 0, maxResults = 10) {
     `${apiEndpoint}?q=intitle:${query}&startIndex=${startIndex}&maxResults=${maxResults}`
   );
 }
+
+export function getBook(bookId) {
+  return httpService.get(`${apiEndpoint}/${bookId}`);
+}
