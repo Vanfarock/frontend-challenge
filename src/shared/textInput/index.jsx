@@ -13,7 +13,7 @@ const TextInput = ({icon, onChange, ...other}) => {
 
 TextInput.propTypes = {
   icon: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 }
 
 export default TextInput;

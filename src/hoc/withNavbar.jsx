@@ -7,7 +7,7 @@ import Navbar from '../components/navbar';
 export default function WithNavbar({ Component, ...other}) {
   return (
     <>
-      <FlexComponent {...other} Component={Component} />
+      <FlexComponent Component={Component} {...other} />
       <Navbar />
     </>
   );

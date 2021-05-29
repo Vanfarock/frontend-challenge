@@ -22,14 +22,14 @@ const BookDetails = (props) => {
   useEffect(() => {
     const bookId = props.match.params.id;
     getBook(bookId)
-      .then(result => { console.log(result.data); setBook(result.data)});
+      .then(result => setBook(result.data));
   }, [props.match.params.id]);
 
   const renderBookCover = () => {
-      if (book.volumeInfo && book.volumeInfo.imageLinks) {
-        return <BookCover src={book.volumeInfo.imageLinks.thumbnail} 
-                          alt={book.volumeInfo.title} />
-      }
+    if (book.volumeInfo && book.volumeInfo.imageLinks) {
+      return <BookCover src={book.volumeInfo.imageLinks.thumbnail} 
+                        alt={book.volumeInfo.title} />
+    }
     return <DefaultBookCover>No image available</DefaultBookCover>;
   }
 

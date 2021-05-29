@@ -28,4 +28,20 @@ export const Input = styled.input`
   border-radius: 0 10px 10px 0;
 
   box-shadow: 5px 5px 80px ${({ theme }) => theme.boxShadow};
+
+  &::placeholder {
+    font-weight: normal;
+    color: ${(props) => props.theme.inputFocusColor};
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    font-weight: normal;
+    color: ${(props) => props.theme.inputFocusColor};
+  }
+
+  &::-ms-input-placeholder {
+    font-weight: normal;
+    color: ${(props) => props.theme.inputFocusColor};
+  }
 `;

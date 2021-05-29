@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { getBooks } from './../../services/booksService';
-import TextInput from '../../shared/textInput';
-import Search from '../../icons/search.svg';
-import DefaultBookCover from '../../shared/defaultBookCover';
-import { SearchPageContainer, 
-         BooksGrid, 
-         Book, 
+import { getBooks } from '../../services/booksService';
+import SearchPage from '../../shared/searchPage';
+import DefaultBookCover from './../../shared/defaultBookCover';
+import { Book, 
          BookCover, 
          BookTitle, 
-         BookAuthor, 
-         LoadMoreButton } from './styles';
+         BookAuthor } from './styles';
 
-const SearchPage = () => {
+const BooksSearchPage = () => {
   const maxRecords = 12;
 
   const [books, setBooks] = useState([]);
@@ -19,7 +15,7 @@ const SearchPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
   
-  const handleQueryChange = async e => {
+  const onQueryChange = async e => {
     const newQuery = e.target.value;
     setQuery(newQuery);
     
@@ -27,11 +23,11 @@ const SearchPage = () => {
     const newBooks = items ? items : [];
     
     setBooks(newBooks);
-    setTotalResults(totalItems);
+    setTotalResults(totalItems || 0);
     setCurrentIndex(0);
   }
   
-  const loadMore = async() => {
+  const onLoadMore = async() => {
     const newIndex = currentIndex + maxRecords;
     const { items } = await searchBooks(query, newIndex);
     const newBooks = items ? items : [];
@@ -45,10 +41,8 @@ const SearchPage = () => {
     
     if (searchQuery) {
       const { data } = await getBooks(searchQuery, searchIndex, maxRecords);
-      
       booksData = data;
     }
-    
     return booksData;
   }
 
@@ -59,26 +53,30 @@ const SearchPage = () => {
     return <DefaultBookCover>No image available</DefaultBookCover>
   }
 
+  const getContent = book => (
+    <Book to={`/books/${book.id}`} key={book.etag}>
+      {renderBookCover(book)}
+      
+      <BookTitle>{book.volumeInfo.title}</BookTitle>
+      
+      {book.volumeInfo.authors && book.volumeInfo.authors.length && 
+        <BookAuthor>by {book.volumeInfo.authors[0]}</BookAuthor>
+      }
+    </Book>
+  );
+
+
   return (
-    <SearchPageContainer>
-      <TextInput icon={Search} 
-                 onChange={handleQueryChange} 
-                 value={query}
-                 placeholder={"Search book"} />
-      <BooksGrid>
-        {books.map(book => (
-          <Book to={`/books/${book.id}`} key={book.etag}>
-            {renderBookCover(book)}
-            <BookTitle>{book.volumeInfo.title}</BookTitle>
-            {book.volumeInfo.authors && book.volumeInfo.authors.length && 
-              <BookAuthor>by {book.volumeInfo.authors[0]}</BookAuthor>
-            }
-          </Book>
-        ))}
-      </BooksGrid>
-      {currentIndex <= totalResults - 1 && <LoadMoreButton onClick={loadMore}>Load more</LoadMoreButton>}
-    </SearchPageContainer>
+    <SearchPage items={books}
+                content={getContent}
+                query={query}
+                onLoadMore={onLoadMore}
+                onQueryChange={onQueryChange}
+                currentIndex={currentIndex}
+                totalResults={totalResults} />
   );
 };
 
-export default SearchPage;
+BooksSearchPage.propTypes = {};
+
+export default BooksSearchPage;

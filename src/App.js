@@ -7,7 +7,7 @@ import FlexComponent from "./hoc/flexComponent";
 import WithNavbar from "./hoc/withNavbar";
 import Home from "./components/home";
 import NotFound from "./components/notFound";
-import SearchPage from "./components/searchPage/index";
+// import SearchPage from "./components/searchPage/index";
 import BookDetails from "./components/bookDetails/index";
 
 function App() {
@@ -25,10 +25,6 @@ function App() {
             render={(props) => (
               <FlexComponent Component={BookDetails} {...props} />
             )}
-          />
-          <Route
-            path="/search"
-            render={(props) => <WithNavbar Component={SearchPage} {...props} />}
           />
           <Route
             path="/not-found"
