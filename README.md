@@ -49,3 +49,4 @@ In this screen the functionalities below are **mandatory**:
 
 1. Base project setup ~ 1h
 2. Change styling from tailwind to styled-components and develop navbar ~ 40min
+3. Finished search page and minor tweaks ~ 3h40min
