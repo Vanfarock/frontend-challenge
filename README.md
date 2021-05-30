@@ -51,3 +51,4 @@ In this screen the functionalities below are **mandatory**:
 2. Change styling from tailwind to styled-components and develop navbar ~ 40min
 3. Finished search page and minor tweaks ~ 3h40min
 4. Finished details page and minor tweaks ~ 2h
+5. Started home page initial layout and minor tweaks ~ 3h

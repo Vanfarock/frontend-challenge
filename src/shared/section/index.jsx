@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dashboard from '../dashboard';
+import Dashboard from '../carousel';
 import { SectionContainer,
-         SectionTitle } from './styles';
+         SectionHeader,
+         SectionTitle,
+         SectionViewMore } from './styles';
 
-const Section = ({ title, items }) => {
+const Section = ({ title, viewMoreLabel, viewMoreTo, items }) => {
   return (
     <SectionContainer>
-      <SectionTitle>{title}</SectionTitle>
+      <SectionHeader>
+        <SectionTitle>{title}</SectionTitle>
+        <SectionViewMore to={viewMoreTo}>{viewMoreLabel}</SectionViewMore>
+      </SectionHeader>
       <Dashboard items={items} />
     </SectionContainer>
   );
@@ -15,6 +20,8 @@ const Section = ({ title, items }) => {
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
+  viewMoreLabel: PropTypes.string.isRequired,
+  viewMoreTo: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

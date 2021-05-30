@@ -2,28 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import styled from 'styled-components';
+
+const StyledCarousel = styled(Carousel)`
+  /* & > ul {
+    align-self: flex-start;
+  } */
+  justify-content: flex-start;
+`;
 
 const Dashboard = ({ items }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
-      partialVisibilityGutter: 64,
+      items: items.length > 3 ? 3 : items.length - 1,
+      partialVisibilityGutter: 55,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      partialVisibilityGutter: 64,
+      items: items.length > 3 ? 3 : items.length - 1,
+      partialVisibilityGutter: 55,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      partialVisibilityGutter: 64,
+      items: items.length > 2 ? 2 : items.length - 1,
+      partialVisibilityGutter: 55,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      partialVisibilityGutter: 64,
+      partialVisibilityGutter: 55,
     }
   };
 
@@ -32,14 +40,14 @@ const Dashboard = ({ items }) => {
   }
   
   return (
-    <Carousel responsive={responsive}
+    <StyledCarousel responsive={responsive}
               draggable={true}
               removeArrowOnDeviceType={['mobile', 'tablet']}
               partialVisible={true}>
-      {items.map((item, index) => (
-        item.content(index)
+      {items.map(item => (
+        item.content()
       ))}
-    </Carousel>
+    </StyledCarousel>
   );
 };
 
