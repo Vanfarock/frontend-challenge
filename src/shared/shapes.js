@@ -12,7 +12,7 @@ export const Circle = styled.div`
   right: ${(props) => props.right};
 
   background-color: ${(props) => props.backgroundColor || ""};
-  border: 2px solid ${(props) => props.backgroundColor || "#4550a7"};
+  border: 2px solid ${(props) => props.borderColor || "#4550a7"};
   border-radius: 100%;
 `;
 

@@ -30,6 +30,7 @@ const theme = {
   boxShadow: "rgba(212, 173, 134, 0.13)",
 
   backgroundColor: "#FEFAF6",
+  foregroundColor: "#FFF6E5",
 };
 
 export default theme;

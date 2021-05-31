@@ -4,11 +4,15 @@ export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  position: relative;
+  /* position: relative; */
 
   width: 100%;
   flex: 1;
   padding: var(--top-distance) var(--horizontal-distance) 0;
+
+  & * {
+    z-index: 10;
+  }
 `;
 
 export const BookCover = styled.img`
@@ -86,6 +90,19 @@ export const MenuItem = styled.div`
 export const MenuLabel = styled.h3`
   flex: 1;
   color: ${({ theme }) => theme.darkerColorNav};
+`;
+
+export const AbstractBackground = styled.div`
+  background-color: ${({ theme }) => theme.foregroundColor};
+
+  width: 100%;
+  height: 220px;
+  border-radius: 0 0 30% 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 `;
 
 export const BackIcon = styled.img`
