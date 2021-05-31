@@ -1,3 +1,12 @@
+# Challenge overview
+
+### Getting started
+
+To run this application, you can either:
+
+- Clone this repository and set `REACT_APP_BOOKS_API_URL = "https://www.googleapis.com/books/v1"` inside your `.env` file (you must create it in the project root)
+- Access https://xenodochial-leakey-c55b7a.netlify.app/, where the app configuration is already done.
+
 ### Time spent on tasks
 
 1. Base project setup ~ 1h
