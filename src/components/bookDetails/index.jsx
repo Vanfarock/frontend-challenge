@@ -54,9 +54,9 @@ const BookDetails = (props) => {
       <AbstractBackground>
         <Circle backgroundColor="#FF6978" borderColor="#FF6978" width="15px" height="15px" left="10%" top="50%" />
         <Circle backgroundColor="#00173D" borderColor="#00173D" width="63px" height="63px" left="25%" top="45%" />
-        <Circle borderColor="#4550A7" width="24px" height="24px" left="65%" top="20%" />
-        <Image src={Oval} width="100px" height="100px" left="80%" top="0%" transform="rotate(180deg)" />
-        <Image src={Oval} width="48px" height="48px" left="60%" top="65%" />
+        <Circle borderColor="#4550A7" width="24px" height="24px" right="30%" top="20%" />
+        <Image src={Oval} width="100px" height="100px" right="0%" top="0%" transform="rotate(180deg)" />
+        <Image src={Oval} width="48px" height="48px" right="30%" top="65%" />
       </AbstractBackground>
       <BackIcon src={Back} onClick={() => props.history.goBack()} />
 
