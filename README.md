@@ -52,3 +52,5 @@ In this screen the functionalities below are **mandatory**:
 3. Finished search page and minor tweaks ~ 3h40min
 4. Finished details page and minor tweaks ~ 2h
 5. Started home page initial layout and minor tweaks ~ 3h
+6. Styled first carousel card ~ 2h
+7. Styled second carousel card and minor tweaks ~ 40min

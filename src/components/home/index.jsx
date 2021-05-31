@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DiscoverCarousel from '../discoverCarousel';
 import ReadingCarousel from '../readingCarousel';
 import ReviewsCarousel from '../reviewsCarousel';
@@ -8,14 +8,27 @@ import { HomeContainer,
          UserName } from './styles';
 
 const Home = () => {
-  return (
-    <HomeContainer>
-      <BooksSearchPage />
+  const [isSearching, setIsSearching] = useState(false);
+
+  const handleSearch = query => {
+    setIsSearching(query);
+  }
+
+  const renderHomeContent = () => (
+    <>
       <UserGreetings>Hi, <UserName>Mehmed Al Fatih</UserName> 👋</UserGreetings>
       
       <DiscoverCarousel />
       <ReadingCarousel />
       <ReviewsCarousel />
+    </>
+  )
+
+  return (
+    <HomeContainer>
+      <BooksSearchPage onSearch={handleSearch} />
+
+      {!isSearching && renderHomeContent()}
     </HomeContainer>
   );
 };

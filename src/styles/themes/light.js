@@ -25,6 +25,8 @@ const theme = {
   lighterPrimaryColorButton: "#2B7DE9",
   darkerPrimaryColorButton: "#0962D7",
 
+  linkDefaultColor: "#4ABDF1",
+
   boxShadow: "rgba(212, 173, 134, 0.13)",
 
   backgroundColor: "#FEFAF6",

@@ -19,8 +19,9 @@ const DiscoverCarousel = () => {
   useEffect(() => {
     getBooks('Hooked', 0, 4)
       .then((res) => {
-        const items = res.data.items ? res.data.items
-                                               .filter(item => item.volumeInfo && item.volumeInfo.imageLinks) 
+        const items = res.data.items ? res.data
+                                          .items
+                                          .filter(item => item.volumeInfo && item.volumeInfo.imageLinks) 
                                      : [];
         setNewBooks(items);
       });

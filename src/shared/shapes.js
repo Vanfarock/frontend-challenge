@@ -11,7 +11,8 @@ export const Circle = styled.div`
   left: ${(props) => props.left};
   right: ${(props) => props.right};
 
-  border: 2px solid #4550a7;
+  background-color: ${(props) => props.backgroundColor || ""};
+  border: 2px solid ${(props) => props.backgroundColor || "#4550a7"};
   border-radius: 100%;
 `;
 
@@ -25,7 +26,7 @@ export const Rectangle = styled.div`
   left: ${(props) => props.left};
   right: ${(props) => props.right};
 
-  background-color: #ec6374;
+  background-color: ${(props) => props.backgroundColor || "#ec6374"};
 
   transform: ${(props) => props.transform || "rotate(14deg)"};
 `;

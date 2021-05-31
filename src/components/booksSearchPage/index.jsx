@@ -7,7 +7,7 @@ import { Book,
          BookTitle, 
          BookAuthor } from './styles';
 
-const BooksSearchPage = () => {
+const BooksSearchPage = ({ onSearch }) => {
   const maxRecords = 12;
 
   const [books, setBooks] = useState([]);
@@ -17,6 +17,8 @@ const BooksSearchPage = () => {
   
   const onQueryChange = async e => {
     const newQuery = e.target.value;
+    
+    onSearch(newQuery);
     setQuery(newQuery);
     
     const { totalItems, items} = await searchBooks(newQuery, currentIndex);

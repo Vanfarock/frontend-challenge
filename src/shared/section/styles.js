@@ -22,4 +22,6 @@ export const SectionTitle = styled.h3`
   margin-bottom: 15px;
 `;
 
-export const SectionViewMore = styled(Link)``;
+export const SectionViewMore = styled(Link)`
+  color: ${({ theme }) => theme.linkDefaultColor};
+`;
