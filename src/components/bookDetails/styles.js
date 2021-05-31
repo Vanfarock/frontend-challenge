@@ -7,7 +7,8 @@ export const DetailsContainer = styled.div`
   position: relative;
 
   width: 100%;
-  padding: 0 var(--horizontal-distance);
+  flex: 1;
+  padding: var(--top-distance) var(--horizontal-distance) 0;
 `;
 
 export const BookCover = styled.img`
@@ -15,7 +16,7 @@ export const BookCover = styled.img`
 
   max-width: 40%;
 
-  margin: 84px auto 0;
+  margin: 0 auto;
 `;
 
 export const BookTitle = styled.h1`
@@ -42,7 +43,7 @@ export const BookDescription = styled.p`
 
 export const BookMenu = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
 
   background: ${({ theme }) => theme.navBackgroundColor};
@@ -50,32 +51,45 @@ export const BookMenu = styled.div`
 
   box-shadow: 3px 3px 23px ${({ theme }) => theme.boxShadow};
 
-  padding: 10px;
+  padding: 20px 10px;
 
-  position: sticky;
+  position: fixed;
   bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: 320px) {
+    flex-direction: row;
+  }
 `;
 
 export const MenuItem = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+
+  padding: 3px 0;
+
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1px;
+
+  @media screen and (min-width: 320px) {
+    &:not(:last-of-type) {
+      border-right: 1px solid ${({ theme }) => theme.defaultColorNav};
+    }
+    padding: 0 10px;
+  }
 `;
 
 export const MenuLabel = styled.h3`
   flex: 1;
-  text-align: center;
   color: ${({ theme }) => theme.darkerColorNav};
-
-  &:not(:last-of-type) {
-    border-right: 1px solid ${({ theme }) => theme.defaultColorNav};
-  }
 `;
 
 export const BackIcon = styled.img`
   position: absolute;
-
-  margin-top: var(--top-distance);
 
   padding: 10px;
   border-radius: 100%;
@@ -97,5 +111,5 @@ export const BackIcon = styled.img`
 `;
 
 export const Icon = styled.img`
-  padding: 10px;
+  padding: 0 10px;
 `;

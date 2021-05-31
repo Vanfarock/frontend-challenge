@@ -7,7 +7,6 @@ import FlexComponent from "./hoc/flexComponent";
 import WithNavbar from "./hoc/withNavbar";
 import Home from "./components/home";
 import NotFound from "./components/notFound";
-// import SearchPage from "./components/searchPage/index";
 import BookDetails from "./components/bookDetails/index";
 
 function App() {
@@ -18,7 +17,13 @@ function App() {
           <Route
             path="/"
             exact
-            render={(props) => <WithNavbar Component={Home} {...props} />}
+            render={(props) => (
+              <WithNavbar
+                Component={Home}
+                searchKey={Date.now().toString()}
+                {...props}
+              />
+            )}
           />
           <Route
             path="/books/:id"

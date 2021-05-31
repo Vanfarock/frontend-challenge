@@ -17,14 +17,21 @@ const DiscoverCarousel = () => {
   const [newBooks, setNewBooks] = useState([]);
 
   useEffect(() => {
+    let mounted = true;
+
     getBooks('Hooked', 0, 4)
       .then((res) => {
         const items = res.data.items ? res.data
                                           .items
                                           .filter(item => item.volumeInfo && item.volumeInfo.imageLinks) 
                                      : [];
-        setNewBooks(items);
+        if (mounted) {
+          setNewBooks(items);
+        }
       });
+      return () => {
+        mounted = false;
+      }
   }, []);
 
   const renderNewBooks = items => {
@@ -32,7 +39,7 @@ const DiscoverCarousel = () => {
       content: () => (
         <CardContainer key={item.etag}>
           <Column>
-            <BookTitle>{item.volumeInfo.title}</BookTitle>
+            <BookTitle to={`/books/${item.id}`}>{item.volumeInfo.title}</BookTitle>
             <BookAuthor>{item.volumeInfo.authors}</BookAuthor>
             <BookStats>
               <StatsIcon src={Stats} /> 120+ <ReadNow>Read Now</ReadNow>

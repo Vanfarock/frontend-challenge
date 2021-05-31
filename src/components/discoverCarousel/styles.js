@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CardContainer = styled.div`
   display: flex;
@@ -6,6 +7,8 @@ export const CardContainer = styled.div`
   height: 100%;
 
   background-color: #00173d;
+  box-shadow: 2px 4px 48px rgba(154, 175, 209, 0.62134);
+
   border-radius: 5px;
   padding: 15px 20px;
   margin-right: 5px;
@@ -28,13 +31,16 @@ export const Column = styled.div`
   width: 100%;
 `;
 
-export const BookTitle = styled.h1`
+export const BookTitle = styled(Link)`
   font-size: 27px;
   font-weight: bold;
   font-family: "Playfair Display";
 
+  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 
   color: white;
   margin-bottom: 5px;
@@ -43,6 +49,12 @@ export const BookTitle = styled.h1`
 export const BookAuthor = styled.h3`
   font-style: italic;
   font-weight: normal;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 export const BookStats = styled.p`

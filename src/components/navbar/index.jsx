@@ -10,7 +10,7 @@ const Navbar = () => {
       <NavItems>
         <NavItem>
           <Icon src={Home} />
-          <NavCustomLink to="/">Home</NavCustomLink>
+          <NavCustomLink to="/" exact>Home</NavCustomLink>
         </NavItem>
         <NavItem>
           <Icon src={Book} />

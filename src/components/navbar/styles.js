@@ -28,7 +28,7 @@ export const NavCustomLink = styled(NavLink)`
   font-size: 10px;
   margin-top: 5px;
 
-  .active {
+  &.active {
     color: ${(props) => props.theme.activeColorNav};
   }
 `;

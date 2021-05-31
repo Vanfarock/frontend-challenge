@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DiscoverCarousel from '../discoverCarousel';
 import ReadingCarousel from '../readingCarousel';
 import ReviewsCarousel from '../reviewsCarousel';
@@ -7,8 +7,12 @@ import { HomeContainer,
          UserGreetings,
          UserName } from './styles';
 
-const Home = () => {
+const Home = ({ searchKey }) => {
   const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    setIsSearching(false);
+  }, [searchKey]);
 
   const handleSearch = query => {
     setIsSearching(query);
@@ -26,7 +30,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <BooksSearchPage onSearch={handleSearch} />
+      <BooksSearchPage key={searchKey} onSearch={handleSearch}/>
 
       {!isSearching && renderHomeContent()}
     </HomeContainer>

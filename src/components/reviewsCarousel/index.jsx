@@ -18,14 +18,21 @@ const ReviewsCarousel = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    let mounted = true;
+
     getBooks('Hooked', 0, 4)
       .then((res) => {
         const items = res.data.items ? res.data
                                           .items
                                           .filter(item => item.volumeInfo && item.volumeInfo.imageLinks) 
                                      : [];
-        setReviews(items);
+        if (mounted) {
+          setReviews(items);
+        }
       });
+    return () => {
+      mounted = false;
+    }
   }, []);
 
   const renderReviews = items => {
@@ -33,7 +40,7 @@ const ReviewsCarousel = () => {
       content: () => (
         <CardContainer key={item.etag}>
           <Column>
-            <BookTitle>{item.volumeInfo.title}</BookTitle>
+            <BookTitle to={`/books/${item.id}`}>{item.volumeInfo.title}</BookTitle>
             <BookAuthor>{item.volumeInfo.authors}</BookAuthor>
             <BookStats>
               <StatsIcon src={Stats} /> 120+ <ReadNow>Read Now</ReadNow>

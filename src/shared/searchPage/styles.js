@@ -8,7 +8,7 @@ export const SearchPageContainer = styled.div`
   padding: var(--top-distance) 0 0;
 `;
 
-export const BooksGrid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 15px;

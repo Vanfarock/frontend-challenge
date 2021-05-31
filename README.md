@@ -1,3 +1,14 @@
+### Time spent on tasks
+
+1. Base project setup ~ 1h
+2. Change styling from tailwind to styled-components and develop navbar ~ 40min
+3. Finished search page and minor tweaks ~ 3h40min
+4. Finished details page and minor tweaks ~ 2h
+5. Started home page initial layout and minor tweaks ~ 3h
+6. Styled first carousel card ~ 2h
+7. Styled second carousel card and minor tweaks ~ 1h20min
+8. Small fixes and deploy ~ 1h30min
+
 # Frontend Challenge
 
 Clone this repository and start our challenge **right now**
@@ -44,13 +55,3 @@ In this screen the functionalities below are **mandatory**:
 In this screen the functionalities below are **mandatory**:
 
 1. See all information for the selected book.
-
-### Time spent
-
-1. Base project setup ~ 1h
-2. Change styling from tailwind to styled-components and develop navbar ~ 40min
-3. Finished search page and minor tweaks ~ 3h40min
-4. Finished details page and minor tweaks ~ 2h
-5. Started home page initial layout and minor tweaks ~ 3h
-6. Styled first carousel card ~ 2h
-7. Styled second carousel card and minor tweaks ~ 40min

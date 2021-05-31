@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { getBooks } from '../../services/booksService';
 import SearchPage from '../../shared/searchPage';
 import DefaultBookCover from './../../shared/defaultBookCover';
@@ -14,7 +15,7 @@ const BooksSearchPage = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
-  
+
   const onQueryChange = async e => {
     const newQuery = e.target.value;
     
@@ -79,6 +80,8 @@ const BooksSearchPage = ({ onSearch }) => {
   );
 };
 
-BooksSearchPage.propTypes = {};
+BooksSearchPage.propTypes = {
+  onSearch: PropTypes.func,
+};
 
 export default BooksSearchPage;

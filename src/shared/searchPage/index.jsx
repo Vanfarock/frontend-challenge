@@ -3,7 +3,7 @@ import TextInput from '../textInput';
 import Search from '../../icons/search.svg';
 import PropTypes from 'prop-types';
 import { SearchPageContainer, 
-         BooksGrid, 
+         Grid, 
          LoadMoreButton } from './styles';
 
 const SearchPage = ({items, content, query, onLoadMore, onQueryChange, currentIndex, totalResults}) => {
@@ -13,9 +13,9 @@ const SearchPage = ({items, content, query, onLoadMore, onQueryChange, currentIn
                  onChange={onQueryChange} 
                  value={query}
                  placeholder="Search book" />
-      <BooksGrid>
+      <Grid>
         {items.map(item => content(item))}
-      </BooksGrid>
+      </Grid>
       {currentIndex <= totalResults - 1 && <LoadMoreButton onClick={onLoadMore}>Load more</LoadMoreButton>}    </SearchPageContainer>
   );
 };
